@@ -1,39 +1,39 @@
-"""Bespoke Midnight Steel & Cyber Mint theme colors and fonts for the GUI Dashboard."""
+"""Bespoke Spotify & Netflix inspired dark theme colors and fonts for the GUI Dashboard."""
 
 from __future__ import annotations
 
 
 class Theme:
-    """Color palette and styling tokens for a custom developer-centric dark theme."""
+    """Color palette and styling tokens for a premium, high-contrast dark UI."""
 
-    # Backgrounds (Midnight Steel)
-    BG_DARK = "#0b0f19"         # Deep obsidian blue-black
-    SIDEBAR_BG = "#111827"      # Dark slate-steel for sidebar
-    CARD_BG = "#1f2937"         # Slate-800 card container background
-    CARD_HOVER = "#374151"      # Slate-700 container hover state
+    # Backgrounds (Obsidian Black)
+    BG_DARK = "#0a0a0a"         # Pitch black main panel
+    SIDEBAR_BG = "#000000"      # Pure black sidebar panel
+    CARD_BG = "#121212"         # Spotify charcoal-black card backgrounds
+    CARD_HOVER = "#1c1c1c"      # Slightly lighter charcoal
     
-    # Accents (Cyber Mint & Indigo)
-    PRIMARY = "#00f5d4"         # Bespoke neon cyan/mint brand highlight
-    PRIMARY_HOVER = "#00d7bb"   # Muted cyan/mint
+    # Accents (Spotify Green & Netflix Red)
+    PRIMARY = "#1ed760"         # Spotify Neon Green brand accent
+    PRIMARY_HOVER = "#1db954"   # Muted Spotify Green
     
-    SECONDARY = "#6366f1"       # Vibrant indigo secondary accent
-    SECONDARY_HOVER = "#4f46e5" # Deep indigo
+    SECONDARY = "#3b82f6"       # Electric Blue secondary brand accent
+    SECONDARY_HOVER = "#2563eb" # Deep Blue
     
     # Status Indicators
-    SUCCESS = "#10b981"         # Emerald green
-    SUCCESS_HOVER = "#059669"   # Dark emerald green
+    SUCCESS = "#1ed760"         # Spotify Green
+    SUCCESS_HOVER = "#1db954"   # Muted green
     
-    WARNING = "#fbbf24"         # Warm golden amber
-    WARNING_HOVER = "#d97706"   # Muted amber
+    WARNING = "#fbbf24"         # Golden Amber
+    WARNING_HOVER = "#d97706"   # Muted Amber
     
-    DANGER = "#f43f5e"          # Vibrant rose red
-    DANGER_HOVER = "#e11d48"    # Deep rose red
+    DANGER = "#e50914"          # Netflix Red
+    DANGER_HOVER = "#b9090b"    # Muted Netflix Red
     
     # Neutral Text Colors
-    TEXT_MAIN = "#f9fafb"       # Off-white slate-50 high contrast text
-    TEXT_MUTED = "#9ca3af"      # Slate-400 medium contrast text
-    TEXT_DARK = "#0b0f19"       # Low contrast black
+    TEXT_MAIN = "#ffffff"       # Pure white high contrast text
+    TEXT_MUTED = "#a7a7a7"      # Spotify muted gray text
+    TEXT_DARK = "#000000"       # Low contrast black
     
-    # Borders
-    BORDER = "#1f2937"          # Slate-800 border line
-    BORDER_LIGHT = "#4b5563"    # Slate-600 active border line
+    # Borders & Button Containers
+    BORDER = "#282828"          # Spotify outline/disabled container gray (distinct against #121212)
+    BORDER_LIGHT = "#3e3e3e"    # Lighter active border line
