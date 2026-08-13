@@ -1,0 +1,90 @@
+{
+  "version": "2.0.0",
+  "user": {
+    "name": "YourName",
+    "timezone": "Asia/Kolkata"
+  },
+  "browser": {
+    "engine": "chromium",
+    "headless": false,
+    "persistent_profile": "./browser_profile",
+    "slow_mo": 100,
+    "maximize_window": true,
+    "accept_permissions": true
+  },
+  "meeting": {
+    "join_early_minutes": 5,
+    "leave_late_minutes": 5,
+    "auto_join": true,
+    "mute_microphone": true,
+    "disable_camera": true,
+    "leave_after_class": true,
+    "wait_for_host": true,
+    "max_wait_minutes": 30,
+    "retry_join": true,
+    "retry_interval_seconds": 20,
+    "max_join_retries": 3,
+    "post_meeting_delay_seconds": 5,
+    "close_browser_after_leave": true
+  },
+  "attendance": {
+    "enabled": true,
+    "keywords": [
+      "attendance",
+      "attendence",
+      "roll call",
+      "roll number",
+      "present"
+    ],
+    "case_sensitive": false,
+    "cooldown_seconds": 20
+  },
+  "speech": {
+    "enabled": true,
+    "engine": "faster-whisper",
+    "model": "base",
+    "language": "en",
+    "device": "auto",
+    "beam_size": 5,
+    "vad_filter": true,
+    "save_transcript": true,
+    "transcript_directory": "./transcripts"
+  },
+  "notifications": {
+    "desktop": true,
+    "sound": true,
+    "popup": true,
+    "flash_window": true,
+    "repeat_alarm": true,
+    "alarm_duration_seconds": 8,
+    "discord_webhook": ""
+  },
+  "alarm_path": "",
+  "logging": {
+    "enabled": true,
+    "level": "INFO",
+    "directory": "./logs",
+    "save_console": true
+  },
+  "recording": {
+    "enabled": true,
+    "directory": "./recordings",
+    "format": "wav",
+    "chunk_seconds": 5,
+    "samplerate": 48000,
+    "channels": 2
+  },
+  "schedule": {
+    "skip_weekends": true,
+    "auto_start": true
+  },
+  "classes": [
+    {
+      "subject": "Example Class",
+      "day": "Monday",
+      "start": "09:30",
+      "end": "10:25",
+      "link": "https://meet.google.com/abc-defg-hij"
+    }
+  ]
+}

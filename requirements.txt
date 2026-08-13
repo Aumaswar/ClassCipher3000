@@ -1,0 +1,7 @@
+playwright>=1.40.0
+faster-whisper>=1.0.0
+soundcard>=0.4.2
+soundfile>=0.12.1
+winotify>=1.1.0
+numpy>=1.26.0
+customtkinter>=5.2.0

@@ -1,0 +1,32 @@
+# Python Virtual Environment
+.venv/
+venv/
+ENV/
+bin/
+lib/
+include/
+
+# Python caching & bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Application local outputs
+logs/
+recordings/
+transcripts/
+notes/
+
+# Google Chrome profile directories (contains active logins and cookies)
+browser_profile/
+
+# VS Code and IDE settings
+.vscode/
+.idea/
+
+# Local configuration details (contains private webhook URLs, names)
+config.json
+
+# Temporary scratch files
+tempCodeRunnerFile.py
+scratch/
