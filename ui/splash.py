@@ -78,14 +78,20 @@ class SplashScreen(ctk.CTkToplevel):
         self._fade_in_slide_up()
 
     def _play_chime(self) -> None:
-        """Play a futuristic arpeggio chime startup sound."""
+        """Play a low, cinematic startup sound (Netflix-style Ta-Dum)."""
         import winsound
         try:
-            # Cyber startup arpeggio (C-Major 7 chord sweep)
-            notes = [523, 659, 784, 988, 1047]  # C5, E5, G5, B5, C6
-            for note in notes:
-                winsound.Beep(note, 90)
-                time.sleep(0.01)
+            # Low, cinematic Ta-Dum sequence
+            # 1. Low atmospheric rumble (85 Hz)
+            winsound.Beep(85, 250)
+            time.sleep(0.08)
+            
+            # 2. First thump "Ta" (100 Hz)
+            winsound.Beep(100, 160)
+            time.sleep(0.05)
+            
+            # 3. Second resolving thump "Dum" (130 Hz)
+            winsound.Beep(130, 480)
         except Exception:
             pass
 
