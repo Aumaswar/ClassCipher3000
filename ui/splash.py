@@ -78,20 +78,25 @@ class SplashScreen(ctk.CTkToplevel):
         self._fade_in_slide_up()
 
     def _play_chime(self) -> None:
-        """Play a low, cinematic startup sound (Netflix-style Ta-Dum)."""
+        """Play a premium, studio-recorded Windows system chime."""
         import winsound
+        from pathlib import Path
+        
+        # Premium system logon sound path (cinematic orchestral chime)
+        logon_wav = Path("C:/Windows/Media/Windows Logon.wav")
+        unlock_wav = Path("C:/Windows/Media/Windows Unlock.wav")
+        
         try:
-            # Low, cinematic Ta-Dum sequence
-            # 1. Low atmospheric rumble (85 Hz)
-            winsound.Beep(85, 250)
-            time.sleep(0.08)
-            
-            # 2. First thump "Ta" (100 Hz)
-            winsound.Beep(100, 160)
-            time.sleep(0.05)
-            
-            # 3. Second resolving thump "Dum" (130 Hz)
-            winsound.Beep(130, 480)
+            if logon_wav.exists():
+                winsound.PlaySound(str(logon_wav), winsound.SND_FILENAME | winsound.SND_ASYNC)
+            elif unlock_wav.exists():
+                winsound.PlaySound(str(unlock_wav), winsound.SND_FILENAME | winsound.SND_ASYNC)
+            else:
+                # Soft, high-frequency fallback beep sequence (pleasant, clear chime)
+                import time
+                winsound.Beep(587, 100)  # D5
+                time.sleep(0.02)
+                winsound.Beep(880, 150)  # A5
         except Exception:
             pass
 
