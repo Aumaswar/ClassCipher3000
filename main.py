@@ -170,8 +170,20 @@ def main() -> None:
     """Launch the Google Meet Attendance Bot CustomTkinter Dashboard UI."""
     config_manager = ConfigManager()
     
-    # Instantiate and start the CTk application main loop
+    # Instantiate the CTk application
     app = Dashboard(config_manager, run_bot_worker)
+    app.withdraw()  # Hide main dashboard during splash screen
+
+    # Load and show splash screen
+    from ui.splash import SplashScreen
+    
+    def on_splash_complete() -> None:
+        app.deiconify()  # Restore main window
+        app.lift()       # Bring to front
+        app.focus_force()
+
+    # Create splash window with main app as parent
+    _ = SplashScreen(app, on_splash_complete)
     app.mainloop()
 
 
