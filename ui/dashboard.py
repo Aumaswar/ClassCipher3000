@@ -135,11 +135,19 @@ class Dashboard(ctk.CTk):
 
         self.version_lbl = ctk.CTkLabel(
             self.sidebar,
-            text="Version 2.2.0\n\nMade by Aum Aswar",
-            font=ctk.CTkFont(size=10, slant="italic"),
+            text="Version 2.2.0",
+            font=ctk.CTkFont(family="Inter", size=10),
             text_color=Theme.TEXT_MUTED,
         )
-        self.version_lbl.grid(row=6, column=0, padx=20, pady=20)
+        self.version_lbl.grid(row=6, column=0, padx=20, pady=(20, 2))
+
+        self.author_lbl = ctk.CTkLabel(
+            self.sidebar,
+            text="Made by Aum Aswar",
+            font=ctk.CTkFont(family="Inter", size=11, weight="bold"),
+            text_color=Theme.PRIMARY,
+        )
+        self.author_lbl.grid(row=7, column=0, padx=20, pady=(0, 20))
 
     def _build_home_page(self) -> None:
         """Create the Home dashboard panel."""
