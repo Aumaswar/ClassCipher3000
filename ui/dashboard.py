@@ -135,7 +135,7 @@ class Dashboard(ctk.CTk):
 
         self.version_lbl = ctk.CTkLabel(
             self.sidebar,
-            text="Version 2.2.0\nPremium Control UI",
+            text="Version 2.2.0\nPremium Control UI\n\nMade by Aum Aswar",
             font=ctk.CTkFont(size=10, slant="italic"),
             text_color=Theme.TEXT_MUTED,
         )
