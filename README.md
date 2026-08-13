@@ -22,17 +22,27 @@ A premium, local Google Meet automation, recording, and real-time attendance mon
 ### 1. Requirements
 Ensure you are running **Python 3.9+** on **Windows** (Windows is required for built-in `winsound` audio alarms, system loopback recording devices, and foreground focus dialogs).
 
-### 2. Setup Repository
-Clone or download the project files into your workspace directory.
+### 2. Setup Repository & Virtual Environment
+Setting up a Python virtual environment is **highly recommended and necessary** to prevent library version conflicts with other globally installed python modules:
+```powershell
+# 1. Open PowerShell and navigate to the project directory
+cd notes_taker
+
+# 2. Create the virtual environment (.venv)
+python -m venv .venv
+
+# 3. Activate the virtual environment
+.venv\Scripts\activate
+```
 
 ### 3. Install Dependencies
-Install the required packages using pip:
+Ensure the virtual environment is active (indicated by `(.venv)` in your prompt) and install the packages:
 ```powershell
 pip install -r requirements.txt
 ```
 
 ### 4. Install Playwright Browsers
-Initialize Playwright’s browser binaries (Chromium):
+Initialize Playwright’s browser binaries inside the virtual environment:
 ```powershell
 playwright install chromium
 ```
