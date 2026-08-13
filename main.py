@@ -166,6 +166,15 @@ def run_bot_worker(config_manager: ConfigManager) -> None:
     logger.info("Background bot worker thread terminated cleanly.")
 
 
+def fade_main_window(app: Dashboard, alpha: float) -> None:
+    """Smoothly fade in the main dashboard window to prevent a jarring visual snap."""
+    if alpha >= 1.0:
+        app.attributes("-alpha", 1.0)
+        return
+    app.attributes("-alpha", alpha)
+    app.after(15, lambda: fade_main_window(app, alpha + 0.08))
+
+
 def main() -> None:
     """Launch the Google Meet Attendance Bot CustomTkinter Dashboard UI."""
     config_manager = ConfigManager()
@@ -178,9 +187,11 @@ def main() -> None:
     from ui.splash import SplashScreen
     
     def on_splash_complete() -> None:
-        app.deiconify()  # Restore main window
-        app.lift()       # Bring to front
+        app.attributes("-alpha", 0.0)  # Start main window transparent
+        app.deiconify()                 # Restore main window
+        app.lift()                      # Bring to front
         app.focus_force()
+        fade_main_window(app, 0.0)      # Trigger smooth fade-in
 
     # Create splash window with main app as parent
     _ = SplashScreen(app, on_splash_complete)

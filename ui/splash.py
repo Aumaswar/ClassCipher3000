@@ -21,6 +21,9 @@ class SplashScreen(ctk.CTkToplevel):
         self.overrideredirect(True)
         self.configure(fg_color=Theme.BG_DARK)
 
+        # Force system to update idle window tasks to get accurate screen dimensions
+        self.update_idletasks()
+
         # Set size and coordinates
         self.width = 460
         self.height = 240
