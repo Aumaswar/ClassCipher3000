@@ -21,18 +21,20 @@ class SplashScreen(ctk.CTkToplevel):
         self.overrideredirect(True)
         self.configure(fg_color=Theme.BG_DARK)
 
-        # Force system to update idle window tasks to get accurate screen dimensions
+        # Force system to update idle window tasks to get accurate screen dimensions and scaling
         self.update_idletasks()
 
         # Set size and coordinates
         self.width = 460
         self.height = 240
         
-        self.screen_width = self.winfo_screenwidth()
-        self.screen_height = self.winfo_screenheight()
+        # Adjust screen dimensions for Windows DPI display scaling
+        scaling = self._get_window_scaling()
+        screen_width = int(self.winfo_screenwidth() / scaling)
+        screen_height = int(self.winfo_screenheight() / scaling)
         
-        self.x = (self.screen_width - self.width) // 2
-        self.y_target = (self.screen_height - self.height) // 2
+        self.x = (screen_width - self.width) // 2
+        self.y_target = (screen_height - self.height) // 2
         self.y_start = self.y_target + 30  # Start slightly lower
         
         # Start hidden and positioned at starting point

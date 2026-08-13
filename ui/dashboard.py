@@ -29,7 +29,18 @@ class Dashboard(ctk.CTk):
         self.bot_thread: threading.Thread | None = None
 
         self.title("Google Meet Attendance Bot Control Center")
-        self.geometry("980x680")
+        
+        # Center the main window on the primary screen, accounting for Windows DPI scaling
+        self.update_idletasks()
+        width = 980
+        height = 680
+        scaling = self._get_window_scaling()
+        screen_width = int(self.winfo_screenwidth() / scaling)
+        screen_height = int(self.winfo_screenheight() / scaling)
+        x = (screen_width - width) // 2
+        y = (screen_height - height) // 2
+        self.geometry(f"{width}x{height}+{x}+{y}")
+
         self.minimum_width = 850
         self.minimum_height = 580
         self.minsize(self.minimum_width, self.minimum_height)
