@@ -78,25 +78,21 @@ class SplashScreen(ctk.CTkToplevel):
         self._fade_in_slide_up()
 
     def _play_chime(self) -> None:
-        """Play a premium, studio-recorded Windows system chime."""
+        """Play a warm, low-frequency cinematic chord sweep (C3 -> G3 -> C4)."""
         import winsound
-        from pathlib import Path
-        
-        # Premium system logon sound path (cinematic orchestral chime)
-        logon_wav = Path("C:/Windows/Media/Windows Logon.wav")
-        unlock_wav = Path("C:/Windows/Media/Windows Unlock.wav")
-        
+        import time
         try:
-            if logon_wav.exists():
-                winsound.PlaySound(str(logon_wav), winsound.SND_FILENAME | winsound.SND_ASYNC)
-            elif unlock_wav.exists():
-                winsound.PlaySound(str(unlock_wav), winsound.SND_FILENAME | winsound.SND_ASYNC)
-            else:
-                # Soft, high-frequency fallback beep sequence (pleasant, clear chime)
-                import time
-                winsound.Beep(587, 100)  # D5
-                time.sleep(0.02)
-                winsound.Beep(880, 150)  # A5
+            # Low, warm cinematic sequence (frequencies > 130 Hz are safe for laptop speakers)
+            # 1. Low C3 (131 Hz) - deep baseline
+            winsound.Beep(131, 180)
+            time.sleep(0.04)
+            
+            # 2. Warm G3 (196 Hz) - harmonic fifth
+            winsound.Beep(196, 140)
+            time.sleep(0.02)
+            
+            # 3. Resolving C4 (262 Hz) - final octave ring
+            winsound.Beep(262, 500)
         except Exception:
             pass
 
